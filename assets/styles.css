@@ -1,0 +1,50 @@
+body{
+    background-color:tomato;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+h1{
+    font-size:36px;
+}
+
+
+
+.container{
+    width: 50%;
+    height: 400px;
+    background-color: rgba(255,255,255,0.5);
+    margin: 5% auto 0;
+    padding: 15px;
+
+}
+
+.container__interno{
+    text-align:center;
+}
+
+.container__interno-timer-p{
+    font-size:80px;
+    letter-spacing: 8px;
+}
+
+.container__interno-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.botao{
+    width: 100px;
+    padding: 10px;
+    border: 2px solid black;
+    
+}
+
+.rodape{
+    background-color:rgba(255,255,255,0.5);
+    height: 25px;
+}

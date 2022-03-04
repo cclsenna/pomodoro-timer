@@ -4,14 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/styles.css">
     <title>Pomodoro Timer</title>
+    <script src="./assets/script.js" defer></script>
 </head>
 <body>
 
-    <main>
+    <main class="container">
+        <div class="container__interno">
+            <h1>Pomodoro Timer</h1>
+
+            <div class="container__interno-timer">
+               <p class="container__interno-timer-p">00:00</p>
+            </div>
+
+            <div class="container__interno-buttons">
+                <div class="botao">PLAY</div>
+                <div class="botao">STOP</div>
+            </div>
+
+            <div class="container__interno-config">
+                
+                <label for="work">Pomodoro Length</label>
+                <input type="number" min="0" max="25" id="work">              
+
+            </div>
+
+
+
+            
+
+        </div>
 
     </main>
+
+    <footer class="rodape">
+
+    </footer>
     
 </body>
+
+
+
 </html>
