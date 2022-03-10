@@ -23,23 +23,31 @@ function start(){
 
     let stopSignal=false;
     let intervalo=0;
+    let intervaloBlink=0;
 
-    document.querySelector('[data-tipo=play]').addEventListener('click',()=>{
+    document.querySelector('[data-tipo=play]').addEventListener('click',(e)=>{
         let work=document.getElementById('work');
         let short=document.getElementById('short');
         let long=document.getElementById('long');
+        let tempo=work;
         let elapsed=0;
-        let total=0;     
+        let total=0;
+        let turno=0;    
 
 
         intervalo=setInterval(timer,1000);
+        intervaloBlink=setInterval(blink,500,e);
+
 
         function timer(){                 
-        let limite=parseInt(work.value)*60*1000;
+        let limite=parseInt(tempo.value)*60*1000;
         elapsed=elapsed+1000;
+        //se cair aqui signifca que terminou o tempo
         if(limite-elapsed===0){
             parada(intervalo);
             document.querySelector('[data-tipo=display]').innerText='00:00';
+            turno=turno+1;
+            controleSessao();
             return;
         } 
 
@@ -52,18 +60,33 @@ function start(){
     }
 
 
+        let controleSessao=()=>{
+            if(turno===2){
+                
+
+
+            }
+
+            
+
+        }
+
+
 
     });
 
     //evento do o botão do stop
-    document.querySelector('[data-tipo=stop]').addEventListener('click',()=>{
+    document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
         parada(intervalo);
+        parada(intervaloBlink);
+        console.log(e.target.classList);
+        e.target.classList.remove('botao-blink');
         document.querySelector('[data-tipo=display]').innerText='00:00';
 
     }) 
     
-    let parada=()=>{
-        clearInterval(intervalo);            
+    let parada=(num)=>{
+        clearInterval(num);            
     
     }
 
@@ -71,8 +94,17 @@ function start(){
 }
 
 
+let blink=(elemento)=>{
+    if(elemento.target.classList.contains('botao-blink')){
+        elemento.target.classList.remove('botao-blink');
+    }
+    else{
+        elemento.target.classList.add('botao-blink');
+    }
 
-let turno=0;
+};
+
+
 
 
 

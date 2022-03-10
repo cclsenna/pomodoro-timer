@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>Pomodoro Timer</title>
     <script src="./assets/script.js" defer></script>
 </head>
@@ -13,37 +14,40 @@
 
     <main class="container">
         <div class="container__interno">
-            <h1>Pomodoro Timer</h1>
+            <div class="container__interno-head">
+                <h1>Pomodoro Timer</h1>
+                <span class="cog"><i class="bi bi-gear"></i></span>
+            </div>
+
 
             <div class="container__interno-timer">
-                <span class="container__interno-timer-disp" data-tipo="display">00:00</span>
+                <span class="container__interno-timer-disp" data-tipo="display">25:00</span>
             </div>
 
             <div class="container__interno-buttons">
-                <div class="botao" data-tipo="play">PLAY</div>
-                <div class="botao" data-tipo="stop">STOP</div>
+                <button class="botao" data-tipo="play">PLAY</button>
+                <button class="botao" data-tipo="stop">STOP</button>
             </div>
 
-            <div class="container__interno-config">
+            <div class="container__interno-config invisible" >
 
-                <div class="teste">
+                <div class="container__interno-config__interno">
                     <label for="work" class="container__interno-config__label">Pomodoro Length</label>
-                    <input type="number" class="container__interno-config__input" min="0" max="25" id="work">   
+                    <input type="number" class="container__interno-config__input" min="0" max="25" id="work" value="25">   
                 </div>
 
 
-                <div class="teste">
+                <div class="container__interno-config__interno">
                     <label for="work" class="container__interno-config__label">Short Break Length</label>
-                    <input type="number" class="container__interno-config__input" min="0" max="25" id="short">
+                    <input type="number" class="container__interno-config__input" min="0" max="25" id="short" value="25">
                 </div>               
 
 
 
-                <div class="teste">
+                <div class="container__interno-config__interno">
                     <label for="work" class="container__interno-config__label">Long Break Length</label>
-                    <input type="number" class="container__interno-config__input" min="0" max="25" id="long">                   
-                </div>
-                
+                    <input type="number" class="container__interno-config__input" min="0" max="25" id="long" value="15">                   
+                </div>               
 
 
 

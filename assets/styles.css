@@ -14,17 +14,23 @@ h1{
 
 
 .container{
-    width: 50%;
-    height: 400px;
+    width: 45%;
+    height: auto;
     background-color: rgba(255,255,255,0.5);
     margin: 5% auto 0;
-    padding: 15px;
+    padding: 80px;
     border-radius:8px;
 
 }
 
 .container__interno{
     text-align:center;
+    
+}
+
+.container__interno-head{
+    position: relative;
+
 }
 
 .container__interno-timer-disp{
@@ -43,6 +49,13 @@ h1{
     padding: 10px;
     border: 2px solid black;
     cursor: pointer;
+    border-radius:5px;
+    background-color:tomato;
+}
+
+.botao-blink{
+    background-color:rgba(255,255,255,0.4);
+    
 }
 
 .container__interno-config__label{
@@ -55,14 +68,30 @@ h1{
     height: 30px;
 }
 
-.teste{
+.container__interno-config__interno{
     width: 25%;
     margin: 0 auto;
 }
 
 
-
 .rodape{
     background-color:rgba(255,255,255,0.5);
     height: 25px;
+}
+
+.cog{
+    position: absolute;
+    right:2px;
+    top:2px;
+    cursor:pointer;    
+}
+
+
+
+.cog i{
+    font-size: 28px;
+}
+
+.invisible{
+    display:none;
 }
