@@ -19,6 +19,7 @@ h1{
     background-color: rgba(255,255,255,0.5);
     margin: 5% auto 0;
     padding: 15px;
+    border-radius:8px;
 
 }
 
@@ -26,7 +27,7 @@ h1{
     text-align:center;
 }
 
-.container__interno-timer-p{
+.container__interno-timer-disp{
     font-size:80px;
     letter-spacing: 8px;
 }
@@ -41,8 +42,25 @@ h1{
     width: 100px;
     padding: 10px;
     border: 2px solid black;
-    
+    cursor: pointer;
 }
+
+.container__interno-config__label{
+    width: 150px;
+    display: inline-block;
+}
+
+.container__interno-config__input{
+    width: 80px;
+    height: 30px;
+}
+
+.teste{
+    width: 25%;
+    margin: 0 auto;
+}
+
+
 
 .rodape{
     background-color:rgba(255,255,255,0.5);

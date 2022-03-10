@@ -16,18 +16,36 @@
             <h1>Pomodoro Timer</h1>
 
             <div class="container__interno-timer">
-               <p class="container__interno-timer-p">00:00</p>
+                <span class="container__interno-timer-disp" data-tipo="display">00:00</span>
             </div>
 
             <div class="container__interno-buttons">
-                <div class="botao">PLAY</div>
-                <div class="botao">STOP</div>
+                <div class="botao" data-tipo="play">PLAY</div>
+                <div class="botao" data-tipo="stop">STOP</div>
             </div>
 
             <div class="container__interno-config">
+
+                <div class="teste">
+                    <label for="work" class="container__interno-config__label">Pomodoro Length</label>
+                    <input type="number" class="container__interno-config__input" min="0" max="25" id="work">   
+                </div>
+
+
+                <div class="teste">
+                    <label for="work" class="container__interno-config__label">Short Break Length</label>
+                    <input type="number" class="container__interno-config__input" min="0" max="25" id="short">
+                </div>               
+
+
+
+                <div class="teste">
+                    <label for="work" class="container__interno-config__label">Long Break Length</label>
+                    <input type="number" class="container__interno-config__input" min="0" max="25" id="long">                   
+                </div>
                 
-                <label for="work">Pomodoro Length</label>
-                <input type="number" min="0" max="25" id="work">              
+
+
 
             </div>
 
