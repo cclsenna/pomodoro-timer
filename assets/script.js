@@ -11,13 +11,8 @@ function start(){
             let tipo=e.target.id;
             if (valor<10) valor='0'+valor; 
             document.querySelector('[data-tipo=display]').innerText=`${valor}:00`;
-
-
-        })
-       
-        
-    })
-
+        })  
+    });
 
        
 
@@ -61,12 +56,15 @@ function start(){
 
 
         let controleSessao=()=>{
-            if(turno===2){
-                
-
+            if(turno<=2){
+                tempo=short;
+                return;       
+            }
+            else if(turno===3){
+                tempo=long;
+                return;
 
             }
-
             
 
         }
@@ -74,6 +72,10 @@ function start(){
 
 
     });
+
+
+
+
 
     //evento do o botão do stop
     document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
@@ -83,10 +85,11 @@ function start(){
         e.target.classList.remove('botao-blink');
         document.querySelector('[data-tipo=display]').innerText='00:00';
 
-    }) 
-    
+    })
+     
+    //exportar essa função
     let parada=(num)=>{
-        clearInterval(num);            
+        clearInterval(num);         
     
     }
 
@@ -94,6 +97,12 @@ function start(){
 }
 
 
+
+
+
+
+
+//exportar essa função
 let blink=(elemento)=>{
     if(elemento.target.classList.contains('botao-blink')){
         elemento.target.classList.remove('botao-blink');

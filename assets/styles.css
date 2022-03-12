@@ -1,10 +1,24 @@
 body{
-    background-color:tomato;
     height: 100vh;
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
+}
+
+.session{
+    background-color: tomato;
+}
+
+.short{
+    background-color: blueviolet;
+
+
+}
+
+.long{
+    background-color:#8ff5b8 ;
+
+
 }
 
 h1{
