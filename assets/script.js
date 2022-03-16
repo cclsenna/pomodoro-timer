@@ -17,76 +17,69 @@ function start(){
     let intervalo=0;
     let intervaloBlink=0;
 
+    const sessionInfo={
+        _sessionType: 'work',
+        _session: 1,
+        _counter: 0,
+        _work:'0.25',
+        _short:'0.25',
+        _long:'0.5',
+        get counter(){
+            return this._counter;
+        },
+        get session(){
+            return this._session;
+        },
+        get sessionType(){
+            return this._sessionType;
+
+        },
+        get work(){
+            return this._work;
+
+        },
+        get short(){
+            return this._short;
+
+        },
+        get long(){
+            return this._long;
+
+        },
+
+        
+        updateSession(){
+            if(this._sessionType==='work'){
+                this._session+=1;
+
+                if(this.session>4){
+                    this._sessionType='long';
+                    return;
+                }
+                
+                this._sessionType='short';
+                return;                
+
+            }
+
+            else if(this._sessionType==='long'){
+                this._sessionType='work';
+                this._session=1;
+                return;
+                               
+            }
+
+            
+                this._sessionType='short';
+                return;
+            
+        }
+    }
+
     document.querySelector('[data-tipo=start]').addEventListener('click',(e)=>{
         //let work=document.getElementById('work');
         //let short=document.getElementById('short');
         //let long=document.getElementById('long');
-        const sessionInfo={
-            _sessionType: 'work',
-            _session: 1,
-            _counter: 0,
-            _work:'0.25',
-            _short:'5',
-            _long:'10',
-            get counter(){
-                return this._counter;
-            },
-            get session(){
-                return this._session;
-            },
-            get sessionType(){
-                return this._sessionType;
-
-            },
-
-            get work(){
-                return this._work;
-
-            },
-            get short(){
-                return this._short;
-
-            },
-            get long(){
-                return this._long;
-
-            },
-
-
-            
-            updateSession(){
-                if(this._sessionType==='work'){
-                    this._session+=1;
-
-                    if(this.session>4){
-                        this._sessionType='long';
-                        return;
-                    }
-                    
-                    this._sessionType='short';
-                    return;                
-
-                }
-
-                else if(this._sessionType==='long'){
-                    this._sessionType='work';
-                    this._session=1;
-                                   
-                }
-
-                else{
-                    this._sessionType='short';
-                    return;
-                }
-            }
-        }
-        /*
-
-        let work='0.25';
-        let short='5';
-        let long='10';
-        */
-
         let tempo=sessionInfo[sessionInfo.sessionType];
         let elapsed=0;
 
@@ -120,15 +113,35 @@ function start(){
             console.log('min'+min);
             console.log('sec'+sec);
             document.querySelector('[data-tipo=display]').innerText=`${min}:${sec}`;
-            document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.session}`;      
+
+
+            switchSession()
+
+            if(sessionInfo.sessionType==='work'){
+                document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.session}`;
+                document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+ 
+
+
+            }
+            else if(sessionInfo.sessionType==='short'){
+                document.querySelector('.container__interno-head__type').innerText='Short Break';
+
+
+            }
+            else{
+                document.querySelector('.container__interno-head__type').innerText='Long Break';
+
+
+            }
+
+
 
             return;
         }      
         
         document.querySelector('[data-tipo=display]').innerText=`${min}:${sec}`;
-    }
-
-        
+    }       
 
 
 
@@ -138,19 +151,28 @@ function start(){
 
     //evento do o botão do stop
     document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
+        const play=document.querySelector('[data-tipo=start]');
         parada(intervalo);
         parada(intervaloBlink);
-        e.target.classList.remove('botao-blink');
+        play.classList.remove('botao-blink');
         document.querySelector('[data-tipo=display]').innerText='00:00';
-
+        document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.session}`;
+        return;
     });
 
-    //exportar essa função
-    const parada=(num)=>{
-        clearInterval(num);
-        return;    
-    
+    document.querySelector('[data-tipo=reset]').addEventListener('click',()=>{
+        const play=document.querySelector('[data-tipo=start]');
+        parada(intervalo);
+        parada(intervaloBlink);
+        play.classList.remove('botao-blink');
+        return;
+
     }
+    );
+
+
+    //exportar essa função
+
 
     
 }
@@ -164,8 +186,11 @@ const switchSession=(tipo,session)=>{
 
 }
 
+const parada=(num)=>{
+    clearInterval(num);
+    return;    
 
-
+}
 
 
 
