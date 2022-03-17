@@ -19,8 +19,8 @@ function start(){
 
     const sessionInfo={
         _sessionType: 'work',
-        _session: 1,
-        _counter: 0,
+        _session: 0,
+        _counter: 1,
         _work:'0.25',
         _short:'0.25',
         _long:'0.5',
@@ -46,13 +46,18 @@ function start(){
             return this._long;
 
         },
+        set session(value){
+            this._session=value;
+        },
 
         
         updateSession(){
+            
             if(this._sessionType==='work'){
                 this._session+=1;
+                this._counter+=1;
 
-                if(this.session>4){
+                if(this.session>3){
                     this._sessionType='long';
                     return;
                 }
@@ -70,7 +75,7 @@ function start(){
             }
 
             
-                this._sessionType='short';
+                this._sessionType='work';
                 return;
             
         }
@@ -115,22 +120,26 @@ function start(){
             document.querySelector('[data-tipo=display]').innerText=`${min}:${sec}`;
 
 
-            switchSession()
+            switchSession();
+            
 
             if(sessionInfo.sessionType==='work'){
-                document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.session}`;
+                document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
                 document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+                switchSession();
  
 
 
             }
-            else if(sessionInfo.sessionType==='short'){
+            else if(sessionInfo.sessionType==='short'){                
                 document.querySelector('.container__interno-head__type').innerText='Short Break';
+                switchSession();
 
 
             }
             else{
                 document.querySelector('.container__interno-head__type').innerText='Long Break';
+                switchSession();
 
 
             }
@@ -156,7 +165,11 @@ function start(){
         parada(intervaloBlink);
         play.classList.remove('botao-blink');
         document.querySelector('[data-tipo=display]').innerText='00:00';
-        document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.session}`;
+        sessionInfo.counter=1;
+        sessionInfo.session=0;
+        document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
+        document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+
         return;
     });
 
@@ -170,16 +183,17 @@ function start(){
     }
     );
 
+    document.querySelector('.cog').addEventListener('click',()=>{
 
-    //exportar essa função
-
-
+    });
     
 }
 
 
-const switchSession=(tipo,session)=>{
-    let sessaoDisp=document.querySelector('.container__interno-head__session').innerText;
+const switchSession=()=>{
+    let sessaoDisp=document.querySelector('.session');
+    sessaoDisp.classList.remove('session');
+    sessaoDisp.classList.add('short');
     return;
 
 

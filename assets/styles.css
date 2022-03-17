@@ -29,19 +29,20 @@ h1{
 
 .container{
     width: 45%;
-    height: auto;
-    background-color: rgba(255,255,255,0.5);
+    height: 45%;
+    background-color: rgba(255,255,255,0.4);
     margin: 5% auto 0;
-    padding: 40px 20px;
+    /*padding: 40px 20px;*/
     border-radius:8px;
 
 }
 
 .container__interno{
     text-align:center;
+    height: 100%;    
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content:space-evenly;
     
 }
 
@@ -70,9 +71,23 @@ h1{
     background-color:tomato;
 }
 
+.botao:active{
+    transform: translate(1px,1px);
+}
+
 .botao-blink{
     background-color:rgba(255,255,255,0.5);
     
+}
+
+.container__interno-head__type{
+    display: inline-block;
+    width: fit-content;
+    padding:5px 40px;
+    background-color:rgba(255,255,255,0.35);
+    border-radius: 9px;
+    margin-bottom: 10px;
+
 }
 
 .container__interno-config__label{
@@ -98,7 +113,7 @@ h1{
 
 .cog{
     position: absolute;
-    right:2px;
+    right:15px;
     top:2px;
     cursor:pointer;    
 }
