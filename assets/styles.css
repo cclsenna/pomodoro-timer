@@ -30,7 +30,7 @@ h1{
 .container{
     width: 45%;
     height: 45%;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.25);
     margin: 5% auto 0;
     /*padding: 40px 20px;*/
     border-radius:8px;
@@ -76,7 +76,7 @@ h1{
 }
 
 .botao-blink{
-    background-color:rgba(255,255,255,0.5);
+    background-color:rgba(255,255,255,0.35);
     
 }
 
@@ -84,7 +84,7 @@ h1{
     display: inline-block;
     width: fit-content;
     padding:5px 40px;
-    background-color:rgba(255,255,255,0.35);
+    background-color:rgba(255,255,255,0.25);
     border-radius: 9px;
     margin-bottom: 10px;
 

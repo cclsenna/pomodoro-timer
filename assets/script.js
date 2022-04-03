@@ -1,5 +1,83 @@
 document.onload=start();
 
+const sessionInfo={
+    _sessionType: 'work',
+    _session: 0,
+    _counter: 1,
+    _work:'0.25',
+    _short:'0.25',
+    _long:'0.5',
+    get counter(){
+        return this._counter;
+    },
+    get session(){
+        return this._session;
+    },
+    get sessionType(){
+        return this._sessionType;
+
+    },
+    get work(){
+        return this._work;
+
+    },
+    get short(){
+        return this._short;
+
+    },
+    get long(){
+        return this._long;
+
+    },
+    set session(value){
+        this._session=value;
+    },
+    set work(value){
+        this._work=value;
+
+    },
+    set short(value){
+        this._short=value;
+
+    },
+    set long(value){
+        this._long=value;
+
+    },
+
+
+    
+    updateSession(){
+        
+        if(this._sessionType==='work'){
+            this._session+=1;
+            this._counter+=1;
+
+            if(this.session>3){
+                this._sessionType='long';
+                return;
+            }
+            
+            this._sessionType='short';
+            return;                
+
+        }
+
+        else if(this._sessionType==='long'){
+            this._sessionType='work';
+            this._session=1;
+            return;
+                           
+        }
+
+        
+            this._sessionType='work';
+
+            return;
+        
+    }
+}
+
 //função para iniciar o js
 function start(){
 
@@ -17,69 +95,7 @@ function start(){
     let intervalo=0;
     let intervaloBlink=0;
 
-    const sessionInfo={
-        _sessionType: 'work',
-        _session: 0,
-        _counter: 1,
-        _work:'0.25',
-        _short:'0.25',
-        _long:'0.5',
-        get counter(){
-            return this._counter;
-        },
-        get session(){
-            return this._session;
-        },
-        get sessionType(){
-            return this._sessionType;
-
-        },
-        get work(){
-            return this._work;
-
-        },
-        get short(){
-            return this._short;
-
-        },
-        get long(){
-            return this._long;
-
-        },
-        set session(value){
-            this._session=value;
-        },
-
-        
-        updateSession(){
-            
-            if(this._sessionType==='work'){
-                this._session+=1;
-                this._counter+=1;
-
-                if(this.session>3){
-                    this._sessionType='long';
-                    return;
-                }
-                
-                this._sessionType='short';
-                return;                
-
-            }
-
-            else if(this._sessionType==='long'){
-                this._sessionType='work';
-                this._session=1;
-                return;
-                               
-            }
-
-            
-                this._sessionType='work';
-                return;
-            
-        }
-    }
+    
 
     document.querySelector('[data-tipo=start]').addEventListener('click',(e)=>{
         //let work=document.getElementById('work');
@@ -109,40 +125,20 @@ function start(){
             parada(intervaloBlink);
             e.target.classList.remove('botao-blink');
             sessionInfo.updateSession();
+            //console.log(sessionInfo.sessionType);
+            //console.log(sessionInfo.session);
+            //console.log(sessionInfo.counter);
             tempo=sessionInfo[sessionInfo.sessionType];
             limite=parseFloat(tempo)*60;
             min=Math.floor(limite/60);
             sec=limite%60;
             if(min<10) min='0'+min;
-            if(sec<10) sec='0'+sec;
-            console.log('min'+min);
-            console.log('sec'+sec);
+            if(sec<10) sec='0'+sec;  
             document.querySelector('[data-tipo=display]').innerText=`${min}:${sec}`;
+            switchSession();        
 
-
-            switchSession();
             
 
-            if(sessionInfo.sessionType==='work'){
-                document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
-                document.querySelector('.container__interno-head__type').innerText='Pomodoro';
-                switchSession();
- 
-
-
-            }
-            else if(sessionInfo.sessionType==='short'){                
-                document.querySelector('.container__interno-head__type').innerText='Short Break';
-                switchSession();
-
-
-            }
-            else{
-                document.querySelector('.container__interno-head__type').innerText='Long Break';
-                switchSession();
-
-
-            }
 
 
 
@@ -191,9 +187,32 @@ function start(){
 
 
 const switchSession=()=>{
-    let sessaoDisp=document.querySelector('.session');
-    sessaoDisp.classList.remove('session');
-    sessaoDisp.classList.add('short');
+    let sessaoDisp=document.querySelector('body');
+    console.log('entrou');
+    console.log(sessionInfo.sessionType);
+
+
+    if(sessionInfo.sessionType==='work'){
+        document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
+        document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+        sessaoDisp.className='';
+        sessaoDisp.classList.add('session');
+    
+    }
+
+    else if(sessionInfo.sessionType==='short'){                
+        document.querySelector('.container__interno-head__type').innerText='Short Break';
+        sessaoDisp.className='';
+        sessaoDisp.classList.add('short');
+    }
+
+    else{
+        document.querySelector('.container__interno-head__type').innerText='Long Break';
+        sessaoDisp.className='';
+        sessaoDisp.classList.add('long');
+
+    }
+
     return;
 
 
