@@ -98,9 +98,9 @@ function start(){
     
 
     document.querySelector('[data-tipo=start]').addEventListener('click',(e)=>{
-        //let work=document.getElementById('work');
-        //let short=document.getElementById('short');
-        //let long=document.getElementById('long');
+        let work=document.getElementById('work');
+        let short=document.getElementById('short');
+        let long=document.getElementById('long');
         let tempo=sessionInfo[sessionInfo.sessionType];
         let elapsed=0;
 
