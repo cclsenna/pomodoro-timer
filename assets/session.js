@@ -42,6 +42,17 @@ export const sessionInfo={
         this._long=value;
 
     },
+    set counter(value){
+        this._counter=value;
+    },
+
+    stopSession(){
+        this._sessionType='work';
+        this._session=0;
+        this._counter=1;
+        return;
+
+    },
 
 
     

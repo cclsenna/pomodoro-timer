@@ -1,90 +1,9 @@
 import {sessionInfo} from './session.js';
+import {blink} from './blink.js';
 
 
 document.onload=start();
 
-
-/*
-const sessionInfo={
-    _sessionType: 'work',
-    _session: 0,
-    _counter: 1,
-    _work:'0.25',
-    _short:'0.25',
-    _long:'0.5',
-    get counter(){
-        return this._counter;
-    },
-    get session(){
-        return this._session;
-    },
-    get sessionType(){
-        return this._sessionType;
-
-    },
-    get work(){
-        return this._work;
-
-    },
-    get short(){
-        return this._short;
-
-    },
-    get long(){
-        return this._long;
-
-    },
-    set session(value){
-        this._session=value;
-    },
-    set work(value){
-        this._work=value;
-
-    },
-    set short(value){
-        this._short=value;
-
-    },
-    set long(value){
-        this._long=value;
-
-    },
-
-
-    
-    updateSession(){
-        
-        if(this._sessionType==='work'){
-            this._session+=1;
-            this._counter+=1;
-
-            if(this.session>3){
-                this._sessionType='long';
-                return;
-            }
-            
-            this._sessionType='short';
-            return;                
-
-        }
-
-        else if(this._sessionType==='long'){
-            this._sessionType='work';
-            this._session=1;
-            return;
-                           
-        }
-        
-            this._sessionType='work';
-
-            return;
-        
-    }
-}
-*/
-
-
-//função para iniciar o js
 function start(){
 
     let inputs=document.querySelectorAll('input');
@@ -125,8 +44,8 @@ function start(){
 
         //se cair aqui signifca que terminou o tempo
         if(limite-elapsed===0){
-            parada(intervalo);
-            parada(intervaloBlink);
+            clearInterval(intervalo);
+            clearInterval(intervaloBlink);
             e.target.classList.remove('botao-blink');
             sessionInfo.updateSession();
             tempo=sessionInfo[sessionInfo.sessionType];
@@ -152,14 +71,15 @@ function start(){
     //evento do o botão do stop
     document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
         const play=document.querySelector('[data-tipo=start]');
-        parada(intervalo);
-        parada(intervaloBlink);
+        clearInterval(intervalo);
+        clearInterval(intervaloBlink);
         play.classList.remove('botao-blink');
         document.querySelector('[data-tipo=display]').innerText='00:00';
         sessionInfo.counter=1;
         sessionInfo.session=0;
         document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
         document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+        sessionInfo.stopSession();
         return;
     });
 
@@ -187,8 +107,9 @@ const switchSession=()=>{
         sessaoDisp.className='';
         sessaoDisp.classList.add('session');
         for(let i of botoes){
-            console.log(i.classList);
-
+            i.className='';
+            i.classList.add('botao');
+            i.classList.add('session');
         }
 
     
@@ -199,8 +120,9 @@ const switchSession=()=>{
         sessaoDisp.className='';
         sessaoDisp.classList.add('short');
         for(let i of botoes){
-            console.log(i.classList);
-
+            i.className='';
+            i.classList.add('botao');
+            i.classList.add('short');
         }
     }
 
@@ -209,7 +131,9 @@ const switchSession=()=>{
         sessaoDisp.className='';
         sessaoDisp.classList.add('long');
         for(let i of botoes){
-            console.log(i.classList);
+            i.className='';
+            i.classList.add('botao');
+            i.classList.add('long');
         }
 
     }
@@ -220,43 +144,6 @@ const switchSession=()=>{
 
 }
 
-
-
-const parada=(num)=>{
-    clearInterval(num);
-    return;    
-
-}
-
-
-
-
-//exportar essa função
-const blink=(elemento)=>{
-    if(elemento.target.classList.contains('botao-blink')){
-        elemento.target.classList.remove('botao-blink');
-    }
-    else{
-        elemento.target.classList.add('botao-blink');
-    }
-    return;
-}
-
-
-
-//esta funcao irá alterar os textos e  também chamar
-const controleSessao=()=>{
-    if(turno<=2&&tipoSessao==='work'){
-        tempo=short;
-        switchSession()
-        return;       
-    }
-    else if(turno===3&&tipoSessao==='work'){
-        tempo=long;
-        return;
-    }
-         
-}
 
 
 
