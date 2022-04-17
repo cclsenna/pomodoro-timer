@@ -80,16 +80,16 @@ function start(){
         document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
         document.querySelector('.container__interno-head__type').innerText='Pomodoro';
         sessionInfo.stopSession();
+        switchSession();
         return;
     });
 
     document.querySelector('[data-tipo=reset]').addEventListener('click',()=>{
         const play=document.querySelector('[data-tipo=start]');
-        parada(intervalo);
-        parada(intervaloBlink);
+        clearInterval(intervalo);
+        clearInterval(intervaloBlink);
         play.classList.remove('botao-blink');
         return;
-
     }
     );
     
@@ -106,41 +106,37 @@ const switchSession=()=>{
         document.querySelector('.container__interno-head__type').innerText='Pomodoro';
         sessaoDisp.className='';
         sessaoDisp.classList.add('session');
-        for(let i of botoes){
-            i.className='';
-            i.classList.add('botao');
-            i.classList.add('session');
-        }
-
-    
+        botoes.forEach((valor)=>{
+            valor.className='';
+            valor.classList.add('botao');
+            valor.classList.add('session');
+        })
+ 
     }
 
-    else if(sessionInfo.sessionType==='short'){                
+    else if(sessionInfo.sessionType==='short'){           
         document.querySelector('.container__interno-head__type').innerText='Short Break';
         sessaoDisp.className='';
         sessaoDisp.classList.add('short');
-        for(let i of botoes){
-            i.className='';
-            i.classList.add('botao');
-            i.classList.add('short');
-        }
+        botoes.forEach((valor)=>{
+            valor.className='';
+            valor.classList.add('botao');
+            valor.classList.add('short');
+        })
     }
 
     else{
         document.querySelector('.container__interno-head__type').innerText='Long Break';
         sessaoDisp.className='';
         sessaoDisp.classList.add('long');
-        for(let i of botoes){
-            i.className='';
-            i.classList.add('botao');
-            i.classList.add('long');
-        }
+        botoes.forEach((valor)=>{
+            valor.className='';
+            valor.classList.add('botao');
+            valor.classList.add('long');
+        })
 
     }
-
     return;
-
-
 
 }
 
