@@ -19,7 +19,7 @@ function start(){
 
     let intervalo=0;
     let intervaloBlink=0;
-    
+     
 
     document.querySelector('[data-tipo=start]').addEventListener('click',(e)=>{
         let work=document.getElementById('work');
@@ -68,7 +68,7 @@ function start(){
 
 
 
-    //evento do o botão do stop
+    //compçortamento do botão de stop
     document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
         const play=document.querySelector('[data-tipo=start]');
         clearInterval(intervalo);
@@ -84,15 +84,6 @@ function start(){
         return;
     });
 
-    document.querySelector('[data-tipo=reset]').addEventListener('click',()=>{
-        const play=document.querySelector('[data-tipo=start]');
-        clearInterval(intervalo);
-        clearInterval(intervaloBlink);
-        play.classList.remove('botao-blink');
-        return;
-    }
-    );
-    
 }
 
 
