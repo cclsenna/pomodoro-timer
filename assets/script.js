@@ -28,9 +28,15 @@ function start(){
         let tempo=sessionInfo[sessionInfo.sessionType];
         let elapsed=0;
 
+        //bloqueia os campos de configuraçõa enquanto o timer estiver correndo
+        const botaoConfig=document.querySelectorAll('.container__options-config__input');
+        botaoConfig.forEach((element)=>{
+            element.setAttribute('disabled',"")
+        });
+
         //chama os intervalos
         intervalo=setInterval(timer,1000);
-        intervaloBlink=setInterval(blink,500,e);             
+        intervaloBlink=setInterval(blink,500,e);            
 
 
         function timer(){                 
@@ -70,6 +76,12 @@ function start(){
 
     //compçortamento do botão de stop
     document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
+        const botaoConfig=document.querySelectorAll('.container__options-config__input');
+        
+        botaoConfig.forEach((element)=>{
+            element.removeAttribute('disabled')
+        });
+
         const play=document.querySelector('[data-tipo=start]');
         clearInterval(intervalo);
         clearInterval(intervaloBlink);
@@ -78,7 +90,7 @@ function start(){
         sessionInfo.counter=1;
         sessionInfo.session=0;
         document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
-        document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+        document.querySelector('.container__interno-head__type').innerText='Pomodoro Timer';
         sessionInfo.stopSession();
         switchSession();
         return;
@@ -94,7 +106,7 @@ const switchSession=()=>{
 
     if(sessionInfo.sessionType==='work'){
         document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
-        document.querySelector('.container__interno-head__type').innerText='Pomodoro';
+        document.querySelector('.container__interno-head__type').innerText='Pomodoro Timer';
         sessaoDisp.className='';
         sessaoDisp.classList.add('session');
         botoes.forEach((valor)=>{

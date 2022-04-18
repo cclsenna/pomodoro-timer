@@ -2,7 +2,8 @@ body{
     height: 100vh;
     display:flex;
     flex-direction: column;
-    justify-content: space-between;    
+    justify-content: space-between; 
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;   
 }
 
 .session{
@@ -76,7 +77,7 @@ h1{
 }
 
 .botao{
-    width: 100px;
+    width: 120px;
     padding: 10px;
     border: 2px solid black;
     cursor: pointer;
@@ -101,19 +102,22 @@ h1{
     margin-bottom: 10px;
 
 }
+.container__interno-head__session{
+    font-size: 1.15em;
+}
 
-.container__interno-config__label{
-    width: 150px;
+.container__options-config__label{
+    width: 180px;
     display: inline-block;
     font-weight: bold;
 }
 
-.container__interno-config__input{
+.container__options-config__input{
     width: 45px;
-    height: 22px;
+    height: 25px;
 }
 
-.container__interno-config__interno{
+.container__options-config{
     width: fit-content;
 }
 
