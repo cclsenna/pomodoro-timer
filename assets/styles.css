@@ -1,3 +1,5 @@
+
+
 body{
     height: 100vh;
     display:flex;
@@ -8,6 +10,15 @@ body{
 
 .session{
     background-color: tomato;
+    /*background:linear-gradient(45deg, blue, red);*/
+
+}
+
+.session-bg{
+    background:linear-gradient( 60deg, tomato 30%, white);
+
+
+
 }
 
 .short{
@@ -48,7 +59,7 @@ h1{
     flex-direction:column;
     align-items:center;
     justify-content:space-around;
-    box-shadow:0 -3px 5px rgba(0,0,0,0.7);
+    box-shadow:0 -2px 8px rgba(0,0,0,0.7);
     
 }
 
@@ -97,11 +108,12 @@ h1{
 
 .container__interno-head__type{
     display: inline-block;
-    width: fit-content;
+    width: 50%;
     padding:5px 40px;
     background-color:rgba(255,255,255,0.25);
     border-radius: 9px;
     margin-bottom: 10px;
+    font-size:2em;
 
 }
 .container__interno-head__session{
@@ -140,3 +152,36 @@ h1{
 .invisible{
     display:none;
 }
+
+@media screen and (max-width: 410px) {
+
+    .container{
+        width: 100vw;
+        height:60vh;
+        margin:0;
+    }
+
+    .container__interno-head__type{
+        font-size:20px;
+    }
+
+    .container__interno-head__session{
+        font-size:14px;
+    }
+
+    .container__interno-timer-disp{
+        font-size:60px;
+        letter-spacing: 8px;
+    }
+
+
+    .container__options{
+        height:60%;        
+    }
+
+
+  }
+
+
+
+
