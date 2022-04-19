@@ -36,6 +36,7 @@ h1{
     /*padding: 40px 20px;*/
     border-radius:8px 8px 0 0;
 
+
 }
 
 .container__options{
@@ -47,6 +48,7 @@ h1{
     flex-direction:column;
     align-items:center;
     justify-content:space-around;
+    box-shadow:0 -3px 5px rgba(0,0,0,0.7);
     
 }
 

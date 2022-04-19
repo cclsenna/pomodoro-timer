@@ -2,9 +2,9 @@ export const sessionInfo={
     _sessionType: 'work',
     _session: 0,
     _counter: 1,
-    _work:'0.25',
-    _short:'0.25',
-    _long:'0.5',
+    _work:'25',
+    _short:'5',
+    _long:'10',
     get counter(){  
         return this._counter;
     },
@@ -20,7 +20,7 @@ export const sessionInfo={
 
     },
     get short(){
-        return this._short;
+        return this._short; 
 
     },
     get long(){

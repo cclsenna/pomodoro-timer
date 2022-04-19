@@ -6,21 +6,23 @@ document.onload=start();
 
 function start(){
 
-    let inputs=document.querySelectorAll('input');
+    const inputs=document.querySelectorAll('input');
 
+    //parte de config qu permite alterar os tempos de execução do timer
     inputs.forEach(el=>{
         el.addEventListener('change',(e)=>{
             let valor=e.target.value;
             let tipo=e.target.id;
             if (valor<10) valor='0'+valor; 
             document.querySelector('[data-tipo=display]').innerText=`${valor}:00`;
+            sessionInfo[e.target.id]=parseInt(valor);            
         })  
-    });       
+    });   
+
 
     let intervalo=0;
     let intervaloBlink=0;
      
-
     document.querySelector('[data-tipo=start]').addEventListener('click',(e)=>{
         let work=document.getElementById('work');
         let short=document.getElementById('short');
@@ -30,6 +32,8 @@ function start(){
 
         //bloqueia os campos de configuraçõa enquanto o timer estiver correndo
         const botaoConfig=document.querySelectorAll('.container__options-config__input');
+
+
         botaoConfig.forEach((element)=>{
             element.setAttribute('disabled',"")
         });
@@ -66,25 +70,25 @@ function start(){
         }      
         
         document.querySelector('[data-tipo=display]').innerText=`${min}:${sec}`;
-    }       
-
-
+    }    
 
     });
-
 
 
     //compçortamento do botão de stop
     document.querySelector('[data-tipo=stop]').addEventListener('click',(e)=>{
         const botaoConfig=document.querySelectorAll('.container__options-config__input');
-        
+
+
         botaoConfig.forEach((element)=>{
             element.removeAttribute('disabled')
         });
 
         const play=document.querySelector('[data-tipo=start]');
+
         clearInterval(intervalo);
         clearInterval(intervaloBlink);
+
         play.classList.remove('botao-blink');
         document.querySelector('[data-tipo=display]').innerText='00:00';
         sessionInfo.counter=1;
@@ -109,6 +113,8 @@ const switchSession=()=>{
         document.querySelector('.container__interno-head__type').innerText='Pomodoro Timer';
         sessaoDisp.className='';
         sessaoDisp.classList.add('session');
+
+
         botoes.forEach((valor)=>{
             valor.className='';
             valor.classList.add('botao');
@@ -121,6 +127,9 @@ const switchSession=()=>{
         document.querySelector('.container__interno-head__type').innerText='Short Break';
         sessaoDisp.className='';
         sessaoDisp.classList.add('short');
+
+
+
         botoes.forEach((valor)=>{
             valor.className='';
             valor.classList.add('botao');
@@ -132,6 +141,8 @@ const switchSession=()=>{
         document.querySelector('.container__interno-head__type').innerText='Long Break';
         sessaoDisp.className='';
         sessaoDisp.classList.add('long');
+
+
         botoes.forEach((valor)=>{
             valor.className='';
             valor.classList.add('botao');
