@@ -1,32 +1,15 @@
-import {sessionInfo} from './session.js';
+import sessionInfo from './session.js';
 import {blink} from './blink.js';
+import switchSession from './switch.js'
 
 
 document.onload=start();
 
 function start(){
-
-    const inputs=document.querySelectorAll('input');
-
-    //parte de config qu permite alterar os tempos de execução do timer
-    inputs.forEach(el=>{
-        el.addEventListener('change',(e)=>{
-            let valor=e.target.value;
-            let tipo=e.target.id;
-            if (valor<10) valor='0'+valor; 
-            document.querySelector('[data-tipo=display]').innerText=`${valor}:00`;
-            sessionInfo[e.target.id]=parseInt(valor);            
-        })  
-    });   
-
-
     let intervalo=0;
     let intervaloBlink=0;
      
     document.querySelector('[data-tipo=start]').addEventListener('click',(e)=>{
-        let work=document.getElementById('work');
-        let short=document.getElementById('short');
-        let long=document.getElementById('long');
         let tempo=sessionInfo[sessionInfo.sessionType];
         let elapsed=0;
 
@@ -106,56 +89,6 @@ function start(){
 }
 
 
-const switchSession=()=>{
-    let sessaoDisp=document.querySelector('body');
-    let botoes=document.querySelectorAll('.botao');
-    
-
-    if(sessionInfo.sessionType==='work'){
-        document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
-        document.querySelector('.container__interno-head__type').innerText='Pomodoro Timer';
-        sessaoDisp.className='';
-        sessaoDisp.classList.add('session');
-
-
-        botoes.forEach((valor)=>{
-            valor.className='';
-            valor.classList.add('botao');
-            valor.classList.add('session');
-        })
- 
-    }
-
-    else if(sessionInfo.sessionType==='short'){           
-        document.querySelector('.container__interno-head__type').innerText='Short Break';
-        sessaoDisp.className='';
-        sessaoDisp.classList.add('short');
-
-
-
-        botoes.forEach((valor)=>{
-            valor.className='';
-            valor.classList.add('botao');
-            valor.classList.add('short');
-        })
-    }
-
-    else{
-        document.querySelector('.container__interno-head__type').innerText='Long Break';
-        sessaoDisp.className='';
-        sessaoDisp.classList.add('long');
-
-
-        botoes.forEach((valor)=>{
-            valor.className='';
-            valor.classList.add('botao');
-            valor.classList.add('long');
-        })
-
-    }
-    return;
-
-}
 
 
 

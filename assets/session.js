@@ -1,4 +1,4 @@
-export const sessionInfo={
+ const sessionInfo={
     _sessionType: 'work',
     _session: 0,
     _counter: 1,
@@ -85,3 +85,5 @@ export const sessionInfo={
         
     }
 }
+
+export default sessionInfo;
