@@ -44,7 +44,6 @@ h1{
     height: 45%;
     background-color: rgba(255,255,255,0.25);
     margin: 5% auto 0;
-    /*padding: 40px 20px;*/
     border-radius:8px 8px 0 0;
 
 
@@ -131,6 +130,18 @@ h1{
     height: 25px;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .container__options-config{
     width: fit-content;
 }
@@ -152,6 +163,14 @@ h1{
 .invisible{
     display:none;
 }
+
+
+.container__options-config__step{
+    cursor:pointer;
+    font-size: 20px;
+}
+
+
 
 @media screen and (max-width: 410px) {
 
@@ -176,7 +195,7 @@ h1{
 
 
     .container__options{
-        height:60%;        
+        height:max-content;        
     }
 
 
