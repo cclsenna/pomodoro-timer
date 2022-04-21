@@ -149,6 +149,10 @@ input[type=number] {
     color:black;
 }
 
+.rodape a:link{
+    color:black;
+}
+
 .invisible{
     display:none;
 }
