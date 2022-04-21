@@ -177,6 +177,11 @@ input[type=number] {
     color:rgba(0,0,0,0.7);
 }
 
+.container__options-config__step-disabled{
+    color:grey;
+
+}
+
 
 
 @media screen and (max-width: 420px) {

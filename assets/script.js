@@ -16,9 +16,15 @@ function start(){
         //bloqueia os campos de configuraçõa enquanto o timer estiver correndo
         const botaoConfig=document.querySelectorAll('.container__options-config__input');
 
-
         botaoConfig.forEach((element)=>{
             element.setAttribute('disabled',"")
+        });
+
+        const steps=document.querySelectorAll('.container__options-config__step');
+        steps.forEach(element=>{
+            element.classList.add('container__options-config__step-disabled');
+
+
         });
 
         //chama os intervalos
@@ -66,6 +72,14 @@ function start(){
         botaoConfig.forEach((element)=>{
             element.removeAttribute('disabled')
         });
+
+        const steps=document.querySelectorAll('.container__options-config__step');
+        steps.forEach(element=>{
+            element.classList.remove('container__options-config__step-disabled');
+
+
+        });
+
 
         const play=document.querySelector('[data-tipo=start]');
 

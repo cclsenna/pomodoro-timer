@@ -9,13 +9,13 @@ function arrows(){
     inc.forEach(val=>val.addEventListener('click',(element)=>{
         const numField=document.querySelector(`input[data-tipo="${element.target.dataset.tipo}"]`);
         
-        if(element.target.dataset.mode==='up'){
+        if(element.target.dataset.mode==='up'&&!numField.hasAttribute('disabled')){
             numField.stepUp(1);
         }
-        else if (element.target.dataset.mode==='down'){
+        else if (element.target.dataset.mode==='down'&&!numField.hasAttribute('disabled')){
             numField.stepDown(1);
         }
-        
+
         let valor=document.querySelector(`input[data-tipo="${element.target.dataset.tipo}"]`).value;
         sessionInfo[element.target.dataset.tipo]=parseInt(valor);
         if(element.target.dataset.tipo==='work'){
