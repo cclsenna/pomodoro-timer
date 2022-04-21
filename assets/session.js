@@ -47,6 +47,7 @@
     },
 
     stopSession(){
+        console.log('entrou no stop');
         this._sessionType='work';
         this._session=0;
         this._counter=1;

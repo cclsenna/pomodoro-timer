@@ -2,6 +2,23 @@ import sessionInfo from './session.js';
 
 const inputs=document.querySelectorAll('input');
 
+/*
+inputs.forEach(element=>{
+    element.addEventListener('change',()=>{
+        let numField=document.querySelector(`input[data-tipo="${element.target.dataset.tipo}"]`);
+        if(se==='work'){
+            if (valor<10) valor='0'+valor; 
+            let numField=document.querySelector(`input[data-tipo="${element.target.dataset.tipo}"]`);
+        }     
+
+        element.target.value
+
+    })
+
+})
+
+*/
+
 
 function arrows(){
     const inc=document.querySelectorAll('.container__options-config__step');
@@ -29,3 +46,5 @@ function arrows(){
 
 
 arrows();
+
+

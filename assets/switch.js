@@ -1,6 +1,8 @@
 import sessionInfo from "./session.js";
 
 const switchSession=()=>{
+
+    console.log('entrou no switch');
     let sessaoDisp=document.querySelector('body');
     let botoes=document.querySelectorAll('.botao');
     

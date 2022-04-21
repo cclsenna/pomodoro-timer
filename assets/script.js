@@ -85,16 +85,18 @@ const start=()=>{
         clearInterval(intervaloBlink);
 
         play.classList.remove('botao-blink');
+        sessionInfo.stopSession();
+        let valor=sessionInfo[sessionInfo.sessionType]
 
-        if (sessionInfo.work<10) valor='0'+sessionInfo.work; 
+
+        if (sessionInfo.work<10) {
+            valor='0'+sessionInfo.work; 
+        }
+
         document.querySelector('[data-tipo=display]').innerText=`${sessionInfo.work}:00`;
 
-        sessionInfo.counter=1;
-        sessionInfo.session=0;
-        document.querySelector('.container__interno-head__session').innerText=`Session #${sessionInfo.counter}`;
-        document.querySelector('.container__interno-head__type').innerText='Pomodoro Timer';
-        sessionInfo.stopSession();
         switchSession();
+
         return;
     });
 
