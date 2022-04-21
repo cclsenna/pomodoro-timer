@@ -1,5 +1,4 @@
 
-
 body{
     height: 100vh;
     display:flex;
@@ -10,34 +9,24 @@ body{
 
 .session{
     background-color: tomato;
-    /*background:linear-gradient(45deg, blue, red);*/
 
 }
 
 .session-bg{
     background:linear-gradient( 60deg, tomato 30%, white);
-
-
-
 }
 
 .short{
     background-color: blueviolet;
-
-
 }
 
 .long{
-    background-color:#8ff5b8 ;
-
-
+    background-color:#8ff5b8;
 }
 
 h1{
     font-size:36px;
 }
-
-
 
 .container{
     width: 650px;
@@ -45,8 +34,6 @@ h1{
     background-color: rgba(255,255,255,0.25);
     margin: 5% auto 0;
     border-radius:8px 8px 0 0;
-
-
 }
 
 .container__options{
@@ -74,7 +61,6 @@ h1{
 
 .container__interno-head{
     position: relative;
-
 }
 
 .container__interno-timer-disp{
@@ -91,9 +77,10 @@ h1{
 .botao{
     width: 120px;
     padding: 10px;
-    border: 2px solid black;
+    border: 0 none black;
     cursor: pointer;
-    border-radius:5px;
+    border-radius: 10px;
+    font-weight: 750;
 }
 
 .botao:active{
@@ -101,8 +88,7 @@ h1{
 }
 
 .botao-blink{
-    background-color:rgba(255,255,255,0.35);
-    
+    background-color:rgba(255,255,255,0.35);    
 }
 
 .container__interno-head__type{
@@ -114,8 +100,8 @@ h1{
     margin-bottom: 10px;
     font-size:2em;
     font-weight: bold;
-
 }
+
 .container__interno-head__session{
     font-size: 1.15em;
 }
@@ -148,28 +134,28 @@ input[type=number] {
 }
 
 
-
 .rodape{
-    background-color:rgba(255,255,255,0.5);
-    height: 25px;
+    height: 30px;
+    text-align: center;
+    display:inline-block;
 }
 
-.cog{
-    position: absolute;
-    right:15px;
-    top:2px;
-    cursor:pointer;    
+.rodape a{
+    font-size: 25px;
+    margin-left:10px;
+}
+
+.rodape a:visited{
+    color:black;
 }
 
 .invisible{
     display:none;
 }
 
-
 .container__options-config__step{
     cursor:pointer;
     font-size: 20px;
-
 }
 
 
@@ -182,61 +168,6 @@ input[type=number] {
     color:grey;
 
 }
-
-
-
-@media screen and (max-width: 700px) {
-
-    .container{
-        width: 100%;
-        height:40%;
-        margin:0;
-    }
-
-    .container__interno-head__type{
-        font-size:30px;
-    }
-
-    .container__interno-head__session{
-        font-size:14px;
-    }
-
-    .container__interno-timer-disp{
-        font-size:60px;
-        letter-spacing: 8px;
-    }
-
-
-    .container__options{
-        height:300px;        
-    }
-
-
-    .container{
-        border-radius: 0;
-    }
-
-
-  }
-
-  @media screen and (max-width: 570px) {
-
-    .container__interno-head__type{
-        font-size:25px;
-    }
-
-  }
-
-  @media screen and (max-width: 470px) {
-
-    .container__interno-head__type{
-        font-size:20px;
-    }
-
-  }
-
-
-
 
 
 

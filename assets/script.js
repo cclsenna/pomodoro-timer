@@ -3,9 +3,7 @@ import {blink} from './blink.js';
 import switchSession from './switch.js'
 
 
-document.onload=start();
-
-function start(){
+const start=()=>{
     let intervalo=0;
     let intervaloBlink=0;
      
@@ -101,6 +99,9 @@ function start(){
     });
 
 }
+
+
+start();
 
 
 
