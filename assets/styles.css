@@ -156,6 +156,7 @@ input[type=number] {
 .container__options-config__step{
     cursor:pointer;
     font-size: 20px;
+    margin: 0 5px;
 }
 
 
