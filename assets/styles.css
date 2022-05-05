@@ -32,7 +32,7 @@ h1{
     width: 650px;
     height: 300px;
     background-color: rgba(255,255,255,0.25);
-    margin: 5% auto 0;
+    margin: 2% auto 0;
     border-radius:8px 8px 0 0;
 }
 
@@ -81,6 +81,14 @@ h1{
     cursor: pointer;
     border-radius: 10px;
     font-weight: 750;
+}
+
+.botao:hover{
+    transform: translate(0px,3px);
+    transition: all ease-in-out 0.3s 0.1s;
+    border:0.5px solid white;
+    color:white;
+
 }
 
 .botao:active{
@@ -145,8 +153,13 @@ input[type=number] {
     margin-left:10px;
 }
 
+
 .rodape a:visited{
     color:black;
+}
+
+.rodape a:hover{
+    color:white;
 }
 
 .rodape a:link{
@@ -172,6 +185,34 @@ input[type=number] {
 .container__options-config__step-disabled{
     color:grey;
 
+}
+
+.media{
+
+    width: 650px;
+    height:100px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: none;
+    
+}
+
+.media__interno{
+    background-color: rgba(255,255,255,0.45);
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    text-align:center;
+
+    
+
+}
+
+.bi-cloud-drizzle-fill{
+    font-size: 70px;
 }
 
 

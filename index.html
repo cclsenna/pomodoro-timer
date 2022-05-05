@@ -21,7 +21,7 @@
 
     
 
-    <div class="container">
+    <section class="container">
         
         <div class="container__interno">
             <div class="container__interno-head">
@@ -46,9 +46,10 @@
         <div class="container__options">
             <div class="container__options-config">
                 <label for="work" class="container__options-config__label">Pomodoro Length</label>
-                    <i class="bi bi-plus-circle-fill container__options-config__step" data-tipo="work" data-mode="up"></i>
-                <input type="number" class="container__options-config__input" min="1" max="60"  data-tipo="work" value="25">
                     <i class="bi bi-dash-circle-fill container__options-config__step" data-tipo="work" data-mode="down"></i>
+
+                <input type="number" class="container__options-config__input" min="1" max="60"  data-tipo="work" value="25">
+                    <i class="bi bi-plus-circle-fill container__options-config__step" data-tipo="work" data-mode="up"></i>
                 
             </div> 
 
@@ -56,24 +57,40 @@
             
             <div class="container__options-config">
                 <label for="short" class="container__options-config__label">Short Break Length</label>
-                    <i class="bi bi-plus-circle-fill container__options-config__step" data-tipo="short" data-mode="up"></i>                
-                <input type="number" class="container__options-config__input" min="1" max="60" id="short" value="5" data-tipo="short">
                     <i class="bi bi-dash-circle-fill container__options-config__step" data-tipo="short" data-mode="down"></i>
+                <input type="number" class="container__options-config__input" min="1" max="60" id="short" value="5" data-tipo="short">
+                    <i class="bi bi-plus-circle-fill container__options-config__step" data-tipo="short" data-mode="up"></i>                
+
             </div>                      
             
             
             <div class="container__options-config">
                 <label for="long" class="container__options-config__label">Long Break Length</label>
-                    <i class="bi bi-plus-circle-fill container__options-config__step" data-tipo="long" data-mode="up"></i>                
-
-                <input type="number" class="container__options-config__input" min="1" max="60" id="long" value="10" data-tipo="long"> 
                     <i class="bi bi-dash-circle-fill container__options-config__step" data-tipo="long" data-mode="down"></i>
+                <input type="number" class="container__options-config__input" min="1" max="60" id="long" value="10" data-tipo="long">
+                    <i class="bi bi-plus-circle-fill container__options-config__step" data-tipo="long" data-mode="up"></i> 
+ 
                  
             </div>      
             
         </div>
 
-    </div>
+    </section>
+
+    <!--
+
+    <section class="media">
+        <div class="media__interno"><i class="bi bi-cloud-drizzle-fill"></i>
+        </div>
+
+        <div class="media__interno"><i class="bi bi-cloud-drizzle-fill"></i>
+        </div>
+
+        <div class="media__interno"><i class="bi bi-cloud-drizzle-fill"></i>
+        </div>
+    </section>
+
+    -->
 
 
     <footer class="rodape">
