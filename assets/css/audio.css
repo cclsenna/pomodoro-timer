@@ -1,0 +1,48 @@
+.media-choice{
+
+    width: 650px;
+    height:100px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: none;  
+    
+}
+
+.media-choice__interno{
+    background-color: rgba(255,255,255,0.45);
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 60px;
+    width: 60px;
+    text-align:center;
+    padding: 5px 5px;
+    cursor:pointer;  
+}
+
+
+.media-choice__interno:hover{
+    transform: translate(1px,1px);
+    box-shadow:0 3px 2px rgba(0,0,0,0.5);
+    transition: all ease-in-out 0.3s 0.3s;
+}
+
+.media-choice__interno i{
+    font-size: 45px;
+}
+
+.media-control{
+    text-align: center;
+}
+
+.media-control i{
+    font-size: 45px;
+    cursor:pointer;
+    letter-spacing: 15px;
+}
+
+.media-control i:hover{
+    color:rgba(255,255,255,0.45);
+}
+
