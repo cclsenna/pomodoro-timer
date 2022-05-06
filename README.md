@@ -1,28 +1,42 @@
-# Pomodoro Clock
+# Relógio Pomodoro
 
-**Tier:** 1-Beginner
+A técnica Pomodoro é um método de administração do tempo desenvolvido por Francesco Cirillo no fim dos anos 1980. A técnica utiliza um timer para dividir a tarefas em intervalos, que são tradicionalmente de 25 minutos e são separados por pardas curtas de 5 minutos.
 
-The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks - 5 minutes.
+## Acessando a página
+A página está hospedada no Github Pages e pode ser acessada através do link https://cclsenna.github.io/pomodoro-timer/
 
-## User Stories
 
--   [ ] User can see a timer for 25 minutes - the **working** session
--   [ ] After the **working** session is over, the User can see a timer for 5 minutes - the **break** session
--   [ ] User can _start_ / _pause_, _stop_ and _reset_ the timers
+## Executando localmente
+Para executar a página localmente,basta realizar o clone do repositório
 
-## Bonus features
+```
+Via HTTPS
+$ git clone https://github.com/cclsenna/pomodoro-timer.git
 
--   [ ] User can hear a sound playing when the timer hits `00:00` - denoting that the session has ended
--   [ ] User can change / customize the minutes in both sessions before starting
--   [ ] User can set a **long break** session of 10 minutes. This will be activated every 4th **break** session
+Via SSH
+$ git clone git@github.com:cclsenna/pomodoro-timer.git
+```
 
-## Useful links and resources
+Em seguida basta abrir o arquivo **index.html** no navegador de sua escolha.
 
--   More about the [Pomodoro Technique](https://en.m.wikipedia.org/wiki/Pomodoro_Technique)
+## Funcionalidades
 
-## Example projects
+- O relógio irá emitir um alarme toda vez que uma contagem de tempo terminar.
 
--   [Joe Weaver's example](https://codepen.io/JoeWeaver/pen/bLbbxK)
--   [FreeCodeCamp Pomodoro Clock example](https://codepen.io/freeCodeCamp/full/XpKrrW)
--   [A desktop pomodoro app for menubar/tray.](https://github.com/amitmerchant1990/pomolectron)
--   [Sheri Richardson's example](https://srd-pomodoro-timer.netlify.com/)
+- Após cada sessão de  trabalho "Pomodoro", o relógio irá automaticamente reiniciar para  o tempo de parada predefinido (Short/Long Break) 
+
+- O usuário pode personalizar o tempo desejado para cada um dos três intervalos utilzando os botões na parte de baixo do timer(Sessão comum,Short Break e Long Break)
+
+### Versão Desktop
+
+![image](./assets/img/desktop.PNG)
+
+
+### Versão Mobile
+
+![image](./assets/img/mobile.PNG)
+
+
+
+
+
